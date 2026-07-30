@@ -12,10 +12,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!----logojanela-->
+    <link rel="icon" type="image/png" href="img/logotipo1.png">
+
     <!-- Fonte Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -39,7 +43,7 @@
             </div>
 
             <!-- Menu -->
-            <nav>
+            <nav id="mainNav">
 
                 <ul>
 
@@ -56,6 +60,11 @@
                 </ul>
 
             </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
 
     </header>
@@ -66,7 +75,9 @@
 
     <section class="hero" id="inicio">
 
-        <div class="hero-text">
+
+
+        <div class="hero-content">
 
             <span>Especialistas em Aquecimento de Água</span>
 
@@ -131,165 +142,301 @@
             </div>
 
         </div>
-
-        <div class="hero-image">
-
-            <!-- Trocar pela imagem principal -->
-            <img src="img/teste-banner.jpg" alt="Banner">
-
-
         </div>
 
-    </section>
 
-    <!-- ========================================================= -->
-    <!-- SERVIÇOS -->
-    <!-- ========================================================= -->
+    </section>
 
     <section id="servicos" class="services">
-        <div class="container">
-            <h2>Nossos Serviços</h2>
 
-            <p class="subtitle">
+        <div class="section-title">
 
-                Soluções completas para residências,
-                condomínios e empresas.
+            <span>Nossos Serviços</span>
 
+            <h2>
+                Soluções completas para o
+                <strong>seu conforto</strong>
+            </h2>
+
+            <p>
+                Trabalhamos com instalação, manutenção e assistência técnica
+                em sistemas que garantem conforto, economia e segurança
+                para você e sua família.
             </p>
 
-            <div class="cards">
+        </div>
 
-                <div class="card">
 
-                    <i class="fa-solid fa-fire"></i>
+        <div class="services-grid">
 
-                    <h3>Aquecedores a Gás</h3>
 
-                    <p>
+            <!-- AQUECEDORES -->
 
-                        Instalação, manutenção,
-                        regulagem, conversão,
-                        diagnóstico e reparos.
+            <article class="service-card">
 
-                    </p>
+                <div class="service-image">
+
+                    <img src="img/Serviço-1.png" alt="Instalação de aquecedor a gás">
 
                 </div>
 
-                <div class="card">
+                <div class="service-content">
 
-                    <i class="fa-solid fa-sun"></i>
+                    <div class="service-title">
 
-                    <h3>Aquecimento Solar</h3>
+                        <div class="service-icon">
+                            <i class="fa-solid fa-fire-flame-simple"></i>
+                        </div>
 
-                    <p>
+                        <h3>Aquecedores a gás</h3>
 
-                        Instalação,
-                        limpeza,
-                        manutenção e
-                        modernização.
+                    </div>
 
-                    </p>
 
-                </div>
+                    <ul class="service-list">
 
-                <div class="card">
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Instalação de aquecedores a gás
+                        </li>
 
-                    <i class="fa-solid fa-faucet"></i>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Manutenção preventiva e corretiva
+                        </li>
 
-                    <h3>Pressurização</h3>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Limpeza e regulagem
+                        </li>
 
-                    <p>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Troca de peças e acessórios
+                        </li>
 
-                        Instalação de pressurizadores,
-                        regulagem de pressão
-                        e manutenção.
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Assistência técnica especializada
+                        </li>
 
-                    </p>
+                    </ul>
 
-                </div>
 
-                <div class="card">
+                    <div class="service-badges">
 
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span class="badge-green">
+                            Garantia nos serviços
+                        </span>
 
-                    <h3>Infraestrutura</h3>
+                        <span class="badge-blue">
+                            Materiais de Qualidade
+                        </span>
 
-                    <p>
-
-                        Tubulações,
-                        gás,
-                        adequações hidráulicas,
-                        testes e centrais.
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <i class="fa-solid fa-shield-heart"></i>
-
-                    <h3>Revisão Preventiva</h3>
-
-                    <p>
-
-                        Limpeza,
-                        testes,
-                        inspeção técnica
-                        e relatório completo.
-
-                    </p>
+                    </div>
 
                 </div>
 
-            </div>
+            </article>
+
+
+
+            <!-- SISTEMA SOLAR -->
+
+            <article class="service-card">
+
+                <div class="service-image">
+
+                    <img src="img/serviço-2.png" alt="Sistema de aquecimento solar">
+
+                </div>
+
+                <div class="service-content">
+
+                    <div class="service-title">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+
+                        <h3>Aquecimento Solar</h3>
+
+                    </div>
+
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Instalação de sistemas solares
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Manutenção e revisão
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Limpeza de coletores
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Troca de peças e acessórios
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Aproveitamento eficiente da energia
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-badges">
+
+                        <span class="badge-green">
+                            Garantia nos serviços
+                        </span>
+
+                        <span class="badge-blue">
+                            Materiais de Qualidade
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRESSURIZAÇÃO -->
+
+            <article class="service-card">
+
+                <div class="service-image">
+
+                    <img src="img/Serviço-3.png" alt="Sistema de pressurização hidráulica">
+
+                </div>
+
+                <div class="service-content">
+
+                    <div class="service-title">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+
+                        <h3>Pressurização hidráulica</h3>
+
+                    </div>
+
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Instalação de pressurizadores
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Manutenção preventiva e corretiva
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Regulagem de pressão
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Troca de peças e acessórios
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            Soluções para falta de pressão
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-badges">
+
+                        <span class="badge-green">
+                            Garantia nos serviços
+                        </span>
+
+                        <span class="badge-blue">
+                            Materiais de Qualidade
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
         </div>
 
     </section>
+
+
 
     <!-- ========================================================= -->
     <!-- SOBRE -->
     <!-- ========================================================= -->
 
+
     <section id="sobre" class="about">
 
-        <div class="about-image">
+        <div class="about-images">
 
-            <img src="img/equipe-teste.jpg" alt="Equipe">
+            <div class="about-image about-image-main">
+                <img src="img/Quem-somos-1.webp" alt="Equipe Atlas Engenharia Térmica">
+            </div>
 
-        </div>
-
-        <div class="about-text">
-
-            <span>Quem Somos</span>
-
-            <h2>
-
-                Atlas Engenharia Térmica
-
-            </h2>
-
-            <p>
-
-                Somos especialistas em instalação,
-                manutenção e assistência técnica
-                de aquecedores a gás,
-                sistemas solares
-                e pressurização hidráulica.
-
-            </p>
-
-            <p>
-
-                Trabalhamos seguindo rigorosamente
-                as normas técnicas,
-                oferecendo segurança,
-                qualidade e atendimento ágil.
-
-            </p>
+            <div class="about-image about-image-secondary">
+                <img src="img/logotipo1.png"
+                    alt="Equipe Atlas Engenharia Térmica em atendimento">
+            </div>
 
         </div>
 
+       <div class="about-text">
+
+    <span>Quem Somos</span>
+
+    <h2>
+        Atlas Engenharia Térmica
+    </h2>
+
+    <p>
+        A <strong>Atlas Engenharia Térmica</strong> é uma empresa
+        especializada em instalação, manutenção e assistência técnica
+        de aquecedores a gás, sistemas de aquecimento solar e
+        pressurização hidráulica.
+    </p>
+
+    <p>
+        <strong>Localizada em Sorocaba - SP</strong>, a Atlas atende
+        clientes em Sorocaba e também em cidades e regiões próximas,
+        levando atendimento técnico, segurança e qualidade para
+        residências, comércios e outros ambientes.
+    </p>
+
+    <p>
+        Trabalhamos com profissionais capacitados e seguindo
+        rigorosamente as normas técnicas, buscando oferecer
+        soluções eficientes, atendimento ágil e um serviço feito
+        com responsabilidade do início ao fim.
+    </p>
+
+</div>
     </section>
 
     <!-- ========================================================= -->
@@ -298,7 +445,7 @@
 
     <section id="diferenciais" class="features">
 
-        <h2>Por que escolher a Atlas?</h2>
+        <h2>Na Atlas você vai encontrar</h2>
 
         <div class="feature-grid">
 
@@ -322,17 +469,60 @@
     <!-- MISSÃO -->
     <!-- ========================================================= -->
 
-    <section class="mission">
+    <section class="mission" id="missao">
 
-        <h2>Nossa Missão</h2>
+        <div class="mission-content">
 
-        <p>
+            <div class="mission-text">
 
-            Oferecer soluções completas em aquecimento
-            de água e sistemas térmicos com excelência técnica,
-            segurança e atendimento diferenciado.
+                <span>Nossa Missão</span>
 
-        </p>
+                <h2>
+                    Segurança, qualidade e confiança
+                </h2>
+
+                <p>
+                    Nossa missão é oferecer soluções em engenharia térmica
+                    que unam segurança, eficiência e qualidade em cada
+                    serviço realizado.
+                </p>
+
+                <p>
+                    Trabalhamos para proporcionar aos nossos clientes
+                    instalações confiáveis, manutenção especializada e
+                    atendimento próximo, sempre buscando entender cada
+                    necessidade e entregar a solução mais adequada.
+                </p>
+
+                <p>
+                    Acreditamos que um bom serviço vai além da instalação.
+                    Por isso, valorizamos o cuidado em cada etapa do trabalho,
+                    o cumprimento das normas técnicas e o compromisso com
+                    a satisfação dos nossos clientes.
+                </p>
+
+            </div>
+
+
+            <div class="mission-images">
+
+                <div class="mission-image mission-image-1">
+                    <img src="img/Missão-1.webp"
+                        alt="Serviço Atlas Engenharia Térmica">
+                </div>
+
+                <div class="mission-image mission-image-2">
+                    <img src="img/Missão-2.webp" alt="Equipe Atlas Engenharia Térmica">
+                </div>
+
+                <div class="mission-image mission-image-3">
+                    <img src="img/Missão-3.webp"
+                        alt="Atendimento Atlas Engenharia Térmica">
+                </div>
+
+            </div>
+
+        </div>
 
     </section>
 
@@ -362,50 +552,152 @@
         </a>
 
     </section>
+    <footer class="footer" id="contato">
 
-    <!-- ========================================================= -->
-    <!-- RODAPÉ -->
-    <!-- ========================================================= -->
+        <div class="footer-container">
 
-    <footer id="contato">
+            <!-- EMPRESA -->
+            <div class="footer-column footer-company">
 
-        <h3>Atlas Engenharia Térmica</h3>
+                <img src="img/logotipo1.png" alt="Atlas Engenharia Térmica" class="footer-logo">
 
-        <p>Especialistas em Aquecimento de Água e Sistemas Térmicos</p>
+                <p>
+                    Especialistas em instalação, manutenção e
+                    assistência técnica de aquecedores a gás,
+                    sistemas solares e pressurização hidráulica.
+                </p>
 
-        <p>
+                
+            
 
-            <!-- Depois substituir -->
+            </div>
 
-            📞 (00) 00000-0000
 
-        </p>
+            <!-- SERVIÇOS -->
+            <div class="footer-column">
 
-        <p>
+                <h3>Serviços</h3>
 
-            📧 contato@atlas.com.br
+                <ul>
 
-        </p>
+                    <li>
+                        <a href="#servicos">
+                            Aquecedores a gás
+                        </a>
+                    </li>
 
-        <p>
+                    <li>
+                        <a href="#servicos">
+                            Aquecimento solar
+                        </a>
+                    </li>
 
-            📍 Cidade - Sorocaba
+                    <li>
+                        <a href="#servicos">
+                            Pressurização hidráulica
+                        </a>
+                    </li>
 
-        </p>
+                    <li>
+                        <a href="#servicos">
+                            Manutenção
+                        </a>
+                    </li>
 
-        <p class="copyright">
+                    <li>
+                        <a href="#servicos">
+                            Assistência técnica
+                        </a>
+                    </li>
 
-            © 2026 Atlas Engenharia Térmica
+                </ul>
 
-        </p>
+            </div>
+
+
+            <!-- CONTATO -->
+            <div class="footer-column">
+
+                <h3>Contato</h3>
+
+                <ul class="footer-contact">
+
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+
+                        <a href="tel:+5519981981821">
+                            (19) 98198-1821
+                        </a>
+                    </li>
+
+                    <li>
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        <a href="https://wa.me/5519981981821">
+                            WhatsApp
+                        </a>
+                    </li>
+                    <!----
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+
+                   
+                    <a href="mailto:contato@atlasengenhariatermica.com.br">
+                        contato@atlasengenhariatermica.com.br
+                    </a>
+                </li>
+-->
+                    <li>
+                        <i class="fa-solid fa-clock"></i>
+
+                        <span>
+                            Atendimento especializado
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ÁREA DE ATENDIMENTO -->
+            <div class="footer-column">
+
+                <h3>Área de Atendimento</h3>
+
+                <ul>
+
+                   <li>Sorocaba e Região</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINHA INFERIOR -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Atlas Engenharia Térmica.
+                Todos os direitos reservados.
+            </p>
+        </div>
 
     </footer>
-
     <!-- ========================================================= -->
     <!-- BOTÃO FLUTUANTE -->
     <!-- ========================================================= -->
 
     <a href="#" class="whatsapp">
+
+
+        <div class="whatsapp-callout">
+            <span>Fale com nossa atendente</span>
+            <div class="whatsapp-arrow">→</div>
+        </div>
 
         <i class="fa-brands fa-whatsapp"></i>
 
@@ -435,9 +727,9 @@ JANELA DE ATENDIMENTO WHATSAPP
 
         </div>
 
-        <div class="atendente" data-msg="Olá! Gostaria de solicitar um orçamento.">
+        <div class="atendente" data-msg="Olá! Gostaria de solicitar um orçamento e acessar os serviços">
 
-            <img src="img/ft-perfil.png" alt="Especialista Atlas">
+            <img src="img/Atendente-1.png" alt="Especialista Atlas">
 
             <div class="atendente-info">
 
@@ -445,7 +737,6 @@ JANELA DE ATENDIMENTO WHATSAPP
 
                 <h4>Atendimento Atlas</h4>
 
-                <p><span class="online"></span> Online</p>
 
             </div>
 

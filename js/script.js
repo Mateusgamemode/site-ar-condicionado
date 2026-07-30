@@ -12,7 +12,7 @@ const links = document.querySelectorAll('nav a');
 
 links.forEach(link => {
 
-    link.addEventListener('click', function(e){
+    link.addEventListener('click', function (e) {
 
         e.preventDefault();
 
@@ -20,11 +20,11 @@ links.forEach(link => {
 
         const destino = document.querySelector(id);
 
-        if(destino){
+        if (destino) {
 
             destino.scrollIntoView({
 
-                behavior:'smooth'
+                behavior: 'smooth'
 
             });
 
@@ -43,19 +43,19 @@ EFEITO NO HEADER
 
 const header = document.querySelector("header");
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 80){
+    if (window.scrollY > 80) {
 
-        header.style.padding="5px 0";
+        header.style.padding = "5px 0";
 
-        header.style.boxShadow="0 8px 20px rgba(0,0,0,.15)";
+        header.style.boxShadow = "0 8px 20px rgba(0,0,0,.15)";
 
-    }else{
+    } else {
 
-        header.style.padding="0";
+        header.style.padding = "0";
 
-        header.style.boxShadow="0 2px 20px rgba(0,0,0,.08)";
+        header.style.boxShadow = "0 2px 20px rgba(0,0,0,.08)";
 
     }
 
@@ -70,34 +70,34 @@ ANIMAÇÃO DAS SEÇÕES
 
 const elementos = document.querySelectorAll(
 
-".card, .about, .feature-grid div, .mission, .cta"
+    ".card, .about, .feature-grid div, .mission, .cta"
 
 );
 
-const observador = new IntersectionObserver((entradas)=>{
+const observador = new IntersectionObserver((entradas) => {
 
-    entradas.forEach((entrada)=>{
+    entradas.forEach((entrada) => {
 
-        if(entrada.isIntersecting){
+        if (entrada.isIntersecting) {
 
-            entrada.target.style.opacity="1";
+            entrada.target.style.opacity = "1";
 
-            entrada.target.style.transform="translateY(0px)";
+            entrada.target.style.transform = "translateY(0px)";
 
         }
 
     });
 
-},{threshold:.2});
+}, { threshold: .2 });
 
 
-elementos.forEach((item)=>{
+elementos.forEach((item) => {
 
-    item.style.opacity="0";
+    item.style.opacity = "0";
 
-    item.style.transform="translateY(40px)";
+    item.style.transform = "translateY(40px)";
 
-    item.style.transition=".8s";
+    item.style.transition = ".8s";
 
     observador.observe(item);
 
@@ -113,31 +113,31 @@ BOTÃO SOLICITAR ORÇAMENTO
 ==========================================================
 */
 
-const botoes=document.querySelectorAll(
+const botoes = document.querySelectorAll(
 
-".btn-primary,.btn-header"
+    ".btn-primary,.btn-header"
 
 );
 
-botoes.forEach(botao=>{
+botoes.forEach(botao => {
 
-    botao.addEventListener("click",(e)=>{
+    botao.addEventListener("click", (e) => {
 
         e.preventDefault();
 
-        const numero="19981981821";
+        const numero = "19981986157";
 
-        const mensagem=encodeURIComponent(
+        const mensagem = encodeURIComponent(
 
-"Olá! Gostaria de solicitar um orçamento."
+            "Olá! Gostaria de solicitar um orçamento."
 
         );
 
         window.open(
 
-`https://wa.me/${numero}?text=${mensagem}`,
+            `https://wa.me/${numero}?text=${mensagem}`,
 
-"_blank"
+            "_blank"
 
         );
 
@@ -155,6 +155,19 @@ MENU RESPONSIVO
 
 console.log("Atlas Engenharia Térmica carregada com sucesso.");
 
+
+/*
+==========================================================HAMBURGER==========================================================
+*/
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", () => {
+    mainNav.classList.toggle("active");
+    
+});
+
+
 /* ==========================================
 JANELA WHATSAPP
 ========================================== */
@@ -167,7 +180,7 @@ const caixaWhatsapp = document.querySelector(".whatsapp-box");
 const fechar = document.querySelector("#fecharWhatsapp");
 
 
-whatsapp.addEventListener("click",(e)=>{
+whatsapp.addEventListener("click", (e) => {
 
     e.preventDefault();
 
@@ -176,7 +189,7 @@ whatsapp.addEventListener("click",(e)=>{
 });
 
 
-fechar.addEventListener("click",()=>{
+fechar.addEventListener("click", () => {
 
     caixaWhatsapp.classList.remove("active");
 
@@ -186,7 +199,7 @@ const atendente = document.querySelector(".atendente");
 
 atendente.addEventListener("click", () => {
 
-    const numero = "5511999999999";
+    const numero = "19981986157";
 
     const mensagem = encodeURIComponent(atendente.dataset.msg);
 
