@@ -791,102 +791,7 @@ section h2 {
 }
 
 
-/* ===========================================================
-   GALERIA DE SERVIÇOS
-   -----------------------------------------------------------
-   Grid tipo "mosaico" com peças em tamanhos variados (a
-   primeira e a última ocupam 2 colunas) para fugir de uma
-   grade uniforme e dar mais dinamismo à seção — mantendo a
-   mesma linguagem visual (gradiente + ícone) usada na Loja,
-   para o site parecer um sistema coeso e não peças soltas.
-=========================================================== */
 
-.gallery {
-    background: var(--white);
-}
-
-.gallery-grid {
-    max-width: 1250px;
-    width: 90%;
-    margin: 55px auto 0;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 210px;
-    gap: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    cursor: default;
-
-    display: flex;
-    align-items: flex-end;
-
-    background: linear-gradient(160deg, var(--primary-light) 0%, var(--primary-dark) 100%);
-}
-
-.gallery-item:nth-child(1),
-.gallery-item:nth-child(6) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-/* Ícone de fundo, grande e sutil, representando o serviço. */
-.gallery-item i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    font-size: 64px;
-    color: rgba(255, 255, 255, .18);
-    transition: transform .5s ease;
-}
-
-.gallery-item:nth-child(1) i,
-.gallery-item:nth-child(6) i {
-    font-size: 110px;
-}
-
-.gallery-caption {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(0deg, rgba(11, 34, 57, .78) 0%, rgba(11, 34, 57, 0) 100%);
-    color: var(--white);
-}
-
-.gallery-caption span {
-    display: block;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: rgba(255, 255, 255, .75);
-    margin-bottom: 4px;
-}
-
-.gallery-caption strong {
-    font-size: 15px;
-    font-weight: 700;
-}
-
-/* Zoom suave no ícone de fundo ao passar o mouse — efeito
-   elegante sem depender de fotos reais ainda não fornecidas. */
-.gallery-item:hover i {
-    transform: translate(-50%, -50%) scale(1.12);
-}
-
-.gallery-note {
-    max-width: 1250px;
-    width: 90%;
-    margin: 24px auto 0;
-    text-align: center;
-    color: var(--text);
-    font-size: 13px;
-}
 
 
 /* ===========================================================
@@ -2446,9 +2351,6 @@ JANELA WHATSAPP
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 
     .gallery-item:nth-child(1),
     .gallery-item:nth-child(6) {
@@ -2733,11 +2635,7 @@ JANELA WHATSAPP
         max-width: 420px;
     }
 
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 160px;
-    }
-
+    
     .testimonials-grid {
         grid-template-columns: 1fr;
         max-width: 420px;
@@ -2829,10 +2727,7 @@ JANELA WHATSAPP
 
     /* NOVOS COMPONENTES */
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 190px;
-    }
+  
 
     .process-number {
         width: 56px;
