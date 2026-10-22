@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
        a manutenção: para trocar o número, basta alterar em
        um único lugar.
     ========================================================== */
-    const WHATSAPP_NUMERO = "5519981986157";
+    const WHATSAPP_NUMERO = "15992677475";
     const WHATSAPP_MENSAGEM_PADRAO = "Olá! Gostaria de solicitar um orçamento.";
 
     /**

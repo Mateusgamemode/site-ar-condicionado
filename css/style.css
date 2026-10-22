@@ -282,6 +282,28 @@ nav a.active::after {
     width: 100%;
 }
 
+.header-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+}
+
+.header-phone:hover {
+    text-decoration: underline;
+}
+
+/* No mobile, esconde o texto e deixa só o ícone,
+   para não estourar o espaço do header */
+@media (max-width: 768px) {
+    .header-phone span {
+        display: none;
+    }
+}
+
 
 /* ===========================================================
    BOTÃO HAMBÚRGUER (MENU MOBILE)
