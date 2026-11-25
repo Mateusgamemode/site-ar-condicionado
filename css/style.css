@@ -7,22 +7,22 @@
 
 :root {
     --primary: #123a63;
-    --primary-light: #124c7f;
-    --primary-dark: #0b2239;
+    --primary-light: #17518a;
+    --primary-dark: #0a2038;
     --secondary: #2b2d2f;
     --light: #F7F9FC;
     --white: #ffffff;
-    --text: #5e6673;
+    --text: #526071;
     --whatsapp: #25D366;
 
     /* Cor de destaque (chama): usada nos CTAs de conversão e em
        elementos que precisam "chamar a atenção" — referência
        direta ao universo da empresa (aquecedores a gás/solar). */
-    --accent: #ff7a1a;
-    --accent-dark: #e05e00;
+    --accent: #f47216;
+    --accent-dark: #d95d05;
 
     --surface-alt: #f7f8fa;
-    --border: #e7ebf1;
+    --border: #e4e9f0;
 
     --radius-sm: 8px;
     --radius-md: 14px;
@@ -296,13 +296,7 @@ nav a.active::after {
     text-decoration: underline;
 }
 
-/* No mobile, esconde o texto e deixa só o ícone,
-   para não estourar o espaço do header */
-@media (max-width: 768px) {
-    .header-phone span {
-        display: none;
-    }
-}
+/* (regra antiga do telefone no mobile removida: ver "REFINAMENTO VISUAL" no fim do arquivo) */
 
 
 /* ===========================================================
@@ -2777,3 +2771,933 @@ JANELA WHATSAPP
 
 }
 
+
+/* ===========================================================
+   REFINAMENTO VISUAL (nov/2026)
+   -----------------------------------------------------------
+   Camada de acabamento aplicada sobre o CSS original, sem
+   mexer na estrutura do HTML nem no JavaScript:
+   1. Tipografia  (Bricolage Grotesque nos títulos + Manrope no texto)
+   2. Paleta      (mesmo azul-marinho + laranja, tons mais harmônicos)
+   3. Cabeçalho e número de telefone
+   4. Ajustes de responsividade (celular e tablet)
+   Fica no FINAL do arquivo de propósito: o que está aqui
+   sobrescreve as regras anteriores.
+=========================================================== */
+
+:root {
+    --font-display: 'Bricolage Grotesque', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --ink: #0a1f35;
+    --accent-text: #c4510a;   /* laranja escurecido: legível em texto sobre fundo claro */
+    --blue: #1a5fb4;
+    --green: #1c8a4e;
+    --header-h: 76px;
+}
+
+html {
+    /* Evita que o menu fixo cubra o título da seção ao clicar nos links */
+    scroll-padding-top: 84px;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -.02em;
+    line-height: 1.15;
+}
+
+/* -----------------------------------------------------------
+   CABEÇALHO
+----------------------------------------------------------- */
+header {
+    background: rgba(26, 30, 34, .88);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+    backdrop-filter: saturate(150%) blur(14px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .06), 0 10px 30px rgba(0, 0, 0, .16);
+}
+
+header.header-scrolled {
+    padding: 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .06), 0 12px 30px rgba(0, 0, 0, .28);
+}
+
+header .container {
+    height: var(--header-h);
+    gap: 24px;
+    transition: height .3s ease;
+}
+
+header.header-scrolled .container {
+    height: 64px;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 58px;
+    transition: height .3s ease;
+}
+
+header.header-scrolled .logo img {
+    height: 48px;
+}
+
+nav ul {
+    gap: 32px;
+}
+
+nav a {
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: rgba(255, 255, 255, .82);
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffffff;
+}
+
+nav a::after {
+    background: var(--accent);
+    bottom: -4px;
+    border-radius: 2px;
+}
+
+header a:focus-visible,
+header button:focus-visible {
+    outline-color: #ffffff;
+}
+
+.nav-actions {
+    gap: 22px;
+}
+
+.btn-header {
+    background: var(--accent);
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    letter-spacing: .01em;
+}
+
+/* Número de telefone do topo:
+   ícone em círculo + rótulo pequeno + número em destaque. */
+.header-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 22px;
+    border-right: 1px solid rgba(255, 255, 255, .14);
+    color: #ffffff;
+    line-height: 1;
+}
+
+.header-phone:hover {
+    text-decoration: none;
+}
+
+.header-phone-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .26);
+    color: #4fdc8c;
+    font-size: 19px;
+    transition: background .3s ease, border-color .3s ease, color .3s ease;
+}
+
+.header-phone:hover .header-phone-icon,
+.header-phone:focus-visible .header-phone-icon {
+    background: var(--whatsapp);
+    border-color: var(--whatsapp);
+    color: #ffffff;
+}
+
+.header-phone-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.header-phone-text small {
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .58);
+}
+
+.header-phone-text strong {
+    font-family: var(--font-display);
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Botão do menu: área de toque de 44px (antes ~28px) */
+.menu-toggle {
+    width: 44px;
+    height: 44px;
+    padding: 12px 8px;
+    margin-right: -8px;
+}
+
+.menu-toggle span {
+    height: 2px;
+    background: #ffffff;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* -----------------------------------------------------------
+   HERO
+----------------------------------------------------------- */
+.hero {
+    min-height: 660px;
+    background-image:
+        linear-gradient(100deg, rgba(5, 17, 30, .86) 0%, rgba(5, 17, 30, .62) 52%, rgba(5, 17, 30, .38) 100%),
+        url("../img/Fundo-hero.webp");
+}
+
+/* Alinha o texto do hero com o logo e o menu (mesma largura do .container) */
+.hero-content {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #ffb784;
+}
+
+.hero-tag::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.hero h1 {
+    max-width: 17em;
+    margin: 20px 0 22px;
+    font-size: clamp(2.05rem, 1.1rem + 3.5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -.028em;
+    text-wrap: balance;
+}
+
+.hero p {
+    max-width: 36em;
+    font-size: clamp(1rem, .94rem + .35vw, 1.2rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, .86);
+}
+
+.hero-buttons {
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    padding: 16px 30px;
+    border-radius: 10px;
+    font-size: 15.5px;
+    letter-spacing: .005em;
+    box-shadow: 0 8px 22px rgba(244, 114, 22, .30);
+}
+
+.btn-primary:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 12px 28px rgba(244, 114, 22, .40);
+}
+
+.btn-primary.btn-small {
+    box-shadow: none;
+}
+
+.btn-secondary {
+    border: 1.5px solid rgba(255, 255, 255, .7);
+    padding: 14.5px 28px;
+    border-radius: 10px;
+    font-size: 15.5px;
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--primary);
+}
+
+.btn-outline {
+    border-width: 1.5px;
+    border-radius: 10px;
+}
+
+.hero-info {
+    gap: 14px;
+    margin-top: 46px;
+}
+
+.mini-card {
+    min-width: 168px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+    color: #ffffff;
+}
+
+.mini-card h3 {
+    margin-bottom: 4px;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+}
+
+.mini-card span {
+    display: block;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, .78);
+}
+
+/* -----------------------------------------------------------
+   TÍTULOS DE SEÇÃO
+----------------------------------------------------------- */
+section h2 {
+    font-size: clamp(1.75rem, 1.05rem + 2.4vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -.025em;
+}
+
+.section-title {
+    margin-bottom: 56px;
+}
+
+.section-title span,
+.about-text span,
+.mission-text span {
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.section-title span,
+.about-text span {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: var(--accent-text);
+}
+
+.section-title span::before,
+.about-text span::before,
+.mission-text span::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 2px;
+    margin: 0 auto 14px;
+    background: var(--accent);
+}
+
+.store-header .section-title span::before,
+.about-text span::before,
+.mission-text span::before {
+    margin-left: 0;
+}
+
+.mission-text span {
+    color: rgba(255, 255, 255, .85);
+}
+
+.section-title h2 {
+    margin: 0 0 16px;
+    font-size: clamp(1.75rem, 1.05rem + 2.4vw, 2.6rem);
+    color: var(--ink);
+}
+
+.store-header .section-title h2 {
+    text-align: left;
+}
+
+.section-title h2,
+.cta h2 {
+    text-wrap: balance;
+}
+
+.section-title h2 strong {
+    font-weight: 700;
+    color: var(--primary-light);
+}
+
+.section-title p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text);
+}
+
+/* -----------------------------------------------------------
+   SERVIÇOS
+----------------------------------------------------------- */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 1px 2px rgba(10, 32, 56, .04), 0 10px 30px rgba(10, 32, 56, .06);
+}
+
+.service-card:hover {
+    box-shadow: 0 2px 4px rgba(10, 32, 56, .05), 0 22px 44px rgba(10, 32, 56, .12);
+}
+
+.service-image {
+    flex-shrink: 0;
+}
+
+.service-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 28px 28px 30px;
+}
+
+.service-title {
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.service-title h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    font-size: 22px;
+    box-shadow: 0 6px 14px rgba(18, 58, 99, .22);
+}
+
+.service-list {
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.service-list li {
+    font-size: 15.5px;
+    color: #2c3d50;
+}
+
+.service-list li i {
+    color: var(--green);
+}
+
+.service-badges {
+    margin-bottom: 4px;
+}
+
+.service-badges span {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+}
+
+.service-badges .badge-green {
+    background: #e6f4ec;
+    color: #17703f;
+}
+
+.service-badges .badge-blue {
+    background: #e6eff9;
+    color: #134b86;
+}
+
+/* O botão acompanha o fim do card (alinha os 3 cards na base).
+   !important porque o HTML define margin-top inline. */
+.service-content .btn-outline {
+    margin-top: auto !important;
+    align-self: flex-start;
+}
+
+.service-content .service-badges + .btn-outline {
+    margin-top: 22px !important;
+}
+
+/* -----------------------------------------------------------
+   QUEM SOMOS / DIFERENCIAIS / MISSÃO
+----------------------------------------------------------- */
+/* Correção: antes de a seção aparecer, o texto fica deslocado 60px para
+   a direita (animação de entrada) e criava rolagem horizontal no celular. */
+.about {
+    overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+    .about {
+        overflow-x: clip;
+    }
+}
+
+.about-text h2 {
+    text-align: left;
+    color: var(--ink);
+}
+
+.about-text p {
+    font-size: 1.03rem;
+    color: #3a4a5e;
+}
+
+.about-text strong {
+    color: var(--primary);
+}
+
+.about-image {
+    border-radius: 16px;
+}
+
+.about-image-secondary {
+    border: 6px solid var(--light);
+    box-shadow: 0 12px 30px rgba(10, 32, 56, .16);
+}
+
+.features {
+    background: #23272b;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 22px;
+    border-radius: 14px;
+    border-left: 3px solid var(--accent);
+    font-size: 16.5px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.feature-item i {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(18, 58, 99, .08);
+    color: var(--primary);
+    font-size: 17px;
+}
+
+.mission {
+    background: linear-gradient(140deg, #1560c4 0%, #0f4aa0 58%, #0d3f88 100%);
+}
+
+.mission-text h2 {
+    font-size: clamp(1.8rem, 1.1rem + 2.4vw, 2.75rem);
+    margin-bottom: 26px;
+}
+
+.mission-text p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, .9);
+}
+
+.mission-image {
+    border-radius: 16px;
+}
+
+/* -----------------------------------------------------------
+   COMO FUNCIONA
+----------------------------------------------------------- */
+.process-number {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    box-shadow: 0 10px 22px rgba(18, 58, 99, .25);
+}
+
+.process-step h3 {
+    font-size: 1.15rem;
+    color: var(--ink);
+}
+
+.process-step p {
+    font-size: 15px;
+}
+
+/* -----------------------------------------------------------
+   FAQ, FORMULÁRIO, CTA E RODAPÉ
+----------------------------------------------------------- */
+.faq-item {
+    padding: 4px 24px;
+    border-radius: 14px;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.faq-item[open] {
+    border-color: #c9d7e8;
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-item summary {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.faq-icon {
+    background: #eef3f9;
+}
+
+.form-field label {
+    font-weight: 600;
+    letter-spacing: .005em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    border: 1.5px solid #d9e1ec;
+    border-radius: 10px;
+    /* 16px evita o zoom automático do iPhone ao tocar no campo */
+    font-size: 16px;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(23, 81, 138, .12);
+}
+
+.cta h2 {
+    font-size: clamp(1.8rem, 1.05rem + 2.4vw, 2.6rem);
+}
+
+.cta p {
+    font-size: 1.08rem;
+}
+
+.footer {
+    background: #1b2024;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.footer-column li,
+.footer-company p {
+    font-size: 15px;
+}
+
+.footer-contact i {
+    color: #5aa9e6;
+}
+
+.footer-bottom p {
+    font-size: 13.5px;
+}
+
+/* Diferenciais: 6 itens em 3 colunas (antes sobravam 2 itens soltos na 2ª linha) */
+@media (min-width: 769px) {
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* -----------------------------------------------------------
+   TABLET (769px – 1024px): cabeçalho mais compacto
+----------------------------------------------------------- */
+@media (max-width: 1100px) {
+    .header-phone {
+        padding-right: 0;
+        border-right: 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    nav ul {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .header-phone-text small {
+        display: none;
+    }
+
+    .header-phone-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+    }
+
+    .header-phone-text strong {
+        font-size: 15px;
+    }
+}
+
+/* -----------------------------------------------------------
+   CELULAR (até 768px)
+----------------------------------------------------------- */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 72px;
+    }
+
+    header .container {
+        height: 64px;
+        gap: 12px;
+    }
+
+    header.header-scrolled .container {
+        height: 58px;
+    }
+
+    .logo img {
+        height: 46px;
+    }
+
+    header.header-scrolled .logo img {
+        height: 42px;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    /* No celular o telefone vira só o botão circular do WhatsApp
+       (antes ficava invisível, pois não havia ícone). */
+    .header-phone {
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .header-phone-text {
+        display: none;
+    }
+
+    .header-phone-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+
+    /* Menu aberto: painel de largura total, itens grandes para o toque */
+    #mainNav {
+        top: 100%;
+        padding: 6px 0 14px;
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+        background: #181c20;
+        border-top: 1px solid rgba(255, 255, 255, .08);
+        box-shadow: 0 24px 40px rgba(0, 0, 0, .35);
+    }
+
+    #mainNav ul {
+        width: 90%;
+        margin: 0 auto;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    #mainNav li a {
+        display: block;
+        padding: 16px 2px;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    #mainNav li:last-child a {
+        border-bottom: 0;
+    }
+
+    #mainNav a::after {
+        display: none;
+    }
+
+    #mainNav a.active {
+        color: #ffb784;
+    }
+
+    .hero {
+        min-height: 0;
+        padding: 72px 0 64px;
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 8.4vw, 2.5rem);
+        margin: 16px 0 18px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        max-width: 460px;
+        margin-top: 28px;
+    }
+
+    .hero-tag {
+        font-size: 11.5px;
+    }
+
+    /* Os 3 números ficam lado a lado (antes: 3 cartões empilhados) */
+    .hero-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 34px;
+    }
+
+    .mini-card {
+        min-width: 0;
+        padding: 14px 10px;
+        text-align: center;
+    }
+
+    .mini-card h3 {
+        font-size: 23px;
+    }
+
+    .mini-card span {
+        font-size: 12px;
+    }
+
+    .section-title {
+        margin-bottom: 36px;
+    }
+
+    .service-image {
+        height: 230px;
+    }
+
+    .service-content {
+        padding: 24px 22px 26px;
+    }
+
+    .service-content .btn-outline {
+        align-self: stretch;
+    }
+
+    .about-text h2 {
+        text-align: left;
+    }
+
+    .feature-item {
+        padding: 16px 18px;
+    }
+
+    .faq-item {
+        padding: 2px 18px;
+    }
+
+    .contact-form-wrapper {
+        width: 92%;
+    }
+
+    .whatsapp {
+        bottom: max(18px, env(safe-area-inset-bottom));
+    }
+
+    .footer-logo {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card img {
+        height: 100%;
+    }
+
+    .service-image {
+        height: 210px;
+    }
+
+    .hero-info {
+        display: grid;
+    }
+
+    .faq-item summary {
+        font-size: 1rem;
+    }
+
+    .footer-column h3 {
+        font-size: 13px;
+    }
+}
+
+/* Telas muito estreitas (ex.: iPhone SE antigo, 320px) */
+@media (max-width: 360px) {
+    .mini-card h3 {
+        font-size: 20px;
+    }
+
+    .whatsapp-callout {
+        display: none;
+    }
+}
